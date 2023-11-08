@@ -131,6 +131,8 @@ aside ul li img {
   gap: 14px;
 }
 .others_box .log_out {
+  color: #fff;
+  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 14px;

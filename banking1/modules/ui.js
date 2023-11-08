@@ -19,7 +19,7 @@ export function aside() {
             <p class="user_name">Alex Adams</p>
         </div>
         <div class="log_out"> <img src="/img/logout.svg" alt="">
-            <p>Log Out</p>
+            <a class="log_out" href="/pages/sign_up/index.html">Log Out</a>
         </div>
     </div>
     `;

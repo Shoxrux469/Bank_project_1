@@ -6,39 +6,71 @@ header();
 
 aside();
 
-let ctx = document.getElementById('chart')
+let line_graph = document.getElementById('line_chart')
+let spending_line = document.getElementById('spending_line')
+let doughnut = document.getElementById('doughnut')
 
-const labels = ['January', 'february', 'march', 'april', 'may', 'juny', 'july',];
-const data = {
-  labels: labels,
+const line_graph_data = {
+  labels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50],
   datasets: [{
     label: 'My First Dataset',
-    data: [65, 59, 80, 81, 56, 55, 40],
-    backgroundColor: [
-      'rgba(255, 99, 132, 0.2)',
-      'rgba(255, 159, 64, 0.2)',
-      'rgba(255, 205, 86, 0.2)',
-      'rgba(75, 192, 192, 0.2)',
-      'rgba(54, 162, 235, 0.2)',
-      'rgba(153, 102, 255, 0.2)',
-      'rgba(201, 203, 207, 0.2)'
-    ],
-    borderColor: [
-      'rgb(255, 99, 132)',
-      'rgb(255, 159, 64)',
-      'rgb(255, 205, 86)',
-      'rgb(75, 192, 192)',
-      'rgb(54, 162, 235)',
-      'rgb(153, 102, 255)',
-      'rgb(201, 203, 207)'
-    ],
-    borderWidth: 1
+    data: [65, 21, 80, 20, 55, 20, 80, 5, 70, 42, 70, 20, 90],
+    borderWidth: 3,
+    borderColor: "rgb(75, 192, 192)",
+    fill: false,
+    tension: 0.5,
   }]
 };
 
-new Chart(ctx, {
-  type: 'bar',
-  data: data,
+new Chart(line_graph, {
+  type: 'line',
+  data: line_graph_data,
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  },
+})
+
+
+const doughnut_data = {
+  labels: [
+  ],
+  datasets: [{
+    label: 'My First Dataset',
+    data: [50, 300, 100],
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
+    ],
+  }]
+};
+
+new Chart(doughnut, {
+  type: 'doughnut',
+  data: doughnut_data
+})
+
+
+const spending_line_data = {
+  labels: [2, 4, 6, 8, 10, 12, 14, 16],
+  datasets: [{
+    label: 'My First Dataset',
+    data: [3, 34, 26, 58, 45, 81, 59, 92, 84, 100],
+    fill: false,
+    pointStyle: false,
+    borderWidth: 2,
+    borderColor: "rgb(75, 192, 192)",
+    tension: 0.5,
+  }]
+};
+
+new Chart(spending_line, {
+  type: 'line',
+  data: spending_line_data,
   options: {
     scales: {
       y: {
